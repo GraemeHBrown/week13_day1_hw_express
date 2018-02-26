@@ -5,6 +5,17 @@ const Review = require('../client/src/models/review');
 
 const express = require('express');
 const filmRouter = new express.Router();
+const filmArray = films();
+
+// show route
+filmRouter.get('/:id', function (req, res) {
+    res.json({data: filmArray[req.params.id]});
+});
+
+//index route
+filmRouter.get('/', function (req, res) {
+    res.json({data: filmArray});
+});
 
 
 
